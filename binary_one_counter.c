@@ -1,25 +1,28 @@
 /*
-Program: Count the number of 1's in the binary equivalent of a given number
+Program: Count the no. of 1s in the binary equivalent of a given number
 Author: Anush N
 Date: 02-10-2024
 */
 
 #include <stdio.h>
 
-int main() {
-    int num, count = 0;  // num is the input number, count keeps track of 1's
-
-    // getting the number from the user
-    printf("Enter a number: ");
-    scanf("%d", &num);
-
-    // counting the number of 1's in binary representation
-    while (num) {
-        count += num & 1;  // increment count if the last bit is 1
-        num >>= 1;         // right shift num by 1 to check the next bit
+// Function to count the no of 1s 
+int countOnes(int num) {
+    int count = 0;
+    while(num > 0) {    //To check each bit of the number
+        if((num & 1) == 1) {  //if the lsb is 1 increment the count
+            count++;
+        }
+        num /= 2;  // dividing by 2 shifts the bits to the right
     }
+    return count;
+}
 
-    printf("Number of 1's in the binary representation: %d\n", count);
-
-    return 0; 
+int main() {
+    int num, count;
+    printf("Enter the number: ");
+    scanf("%d",&num);
+    count = countOnes(num);  //calling the function to count the 1s and storing the result
+    printf("No. of 1s in the binary equivalent of %d is %d",num,count);
+    return 0;
 }
