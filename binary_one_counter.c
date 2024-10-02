@@ -23,6 +23,6 @@ int main() {
     printf("Enter the number: ");
     scanf("%d",&num);
     count = countOnes(num);  //calling the function to count the 1s and storing the result
-    printf("No. of 1s in the binary equivalent of %d is %d",num,count);
+    printf("No. of 1s in the binary equivalent of %d is %d\n",num,count);
     return 0;
 }
